@@ -206,3 +206,7 @@ section h2 {
 .site-footer p {
     margin: 5px 0;
 }
+/* Add this to your style.css */
+#play-music-button {
+    margin-bottom: 20px;
+}
