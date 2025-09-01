@@ -46,26 +46,36 @@
         </footer>
     </div>
 
-    <script>
+<script>
         const muteButton = document.getElementById('mute-button');
         const backgroundSong = document.getElementById('background-song');
+        let hasMusicStarted = false; // Flag to check if music has started
 
-        // Function to start the music
-        function startMusic() {
+        // This is the main function to start the music
+        function initiateAudio() {
+            if (hasMusicStarted) return; // Don't run this more than once
+
             backgroundSong.play();
-            // Once music starts, set the icon to 'sound on'
-            muteButton.textContent = '🔊';
+            hasMusicStarted = true;
+            muteButton.textContent = '🔊'; // Set icon to 'sound on'
         }
 
-        // Add an event listener that only runs ONCE on the first mouse move
-        document.addEventListener('mousemove', startMusic, { once: true });
+        // Add event listeners for ANY user interaction
+        document.addEventListener('mousemove', initiateAudio);
+        document.addEventListener('touchstart', initiateAudio);
+        document.addEventListener('click', initiateAudio);
+        document.addEventListener('keydown', initiateAudio);
 
-        // Keep the mute button functionality
+        // Mute button functionality
         muteButton.addEventListener('click', () => {
-            if (backgroundSong.paused) {
-                backgroundSong.play();
-                muteButton.textContent = '🔊';
-            } else if (backgroundSong.muted) {
+            // If music hasn't started yet, clicking the mute button should start it
+            if (!hasMusicStarted) {
+                initiateAudio();
+                return;
+            }
+            
+            // Toggle mute/unmute if music is already playing
+            if (backgroundSong.muted) {
                 backgroundSong.muted = false;
                 muteButton.textContent = '🔊';
             } else {
