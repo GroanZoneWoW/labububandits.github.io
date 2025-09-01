@@ -6,13 +6,12 @@
     <title>Labubu Bandits - Ambershire Guild - Turtle WoW</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="enter-overlay">
-        <img id="enter-image" src="enterwebsite.png" alt="Welcome to Labubu Bandits" style="cursor: pointer;">
-        <p class="click-prompt">Click to Enter</p>
+        <img id="enter-image" src="enterwebsite.png" alt="Click to Enter Labubu Bandits" style="cursor: pointer;">
     </div>
 
     <audio id="background-song" src="song.mp3" loop></audio>
@@ -105,18 +104,16 @@
 
     <script>
         const enterOverlay = document.getElementById('enter-overlay');
-        const enterImage = document.getElementById('enter-image'); // Get the image element
+        const enterImage = document.getElementById('enter-image');
         const backgroundSong = document.getElementById('background-song');
         const muteButton = document.getElementById('mute-button');
 
-        // When the user clicks the image on the overlay
         enterImage.addEventListener('click', () => {
-            enterOverlay.style.display = 'none'; // Hide the overlay
-            backgroundSong.play(); // Play the music
-            muteButton.textContent = '🔊'; // Show the sound-on icon
+            enterOverlay.style.display = 'none';
+            backgroundSong.play();
+            muteButton.textContent = '🔊';
         });
 
-        // Mute button functionality (remains the same)
         muteButton.addEventListener('click', () => {
             if (backgroundSong.paused) {
                 backgroundSong.play();
