@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css/2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <audio id="background-song" src="song.mp3" loop></audio>
+    
+    <div id="mute-button">🔇</div>
 
     <div class="site-container">
         <header class="site-header">
@@ -21,7 +23,6 @@
                     <p class="server-name">Ambershire - Turtle WoW</p>
                 </div>
             </div>
-            <button id="play-music-button" class="cta-button">Enable Music</button>
             <nav class="main-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -32,7 +33,7 @@
         </header>
 
         <main class="main-content">
-            <section id="home">
+             <section id="home">
                  </section>
             <section id="about">
                  </section>
@@ -46,12 +47,31 @@
     </div>
 
     <script>
-        const playButton = document.getElementById('play-music-button');
+        const muteButton = document.getElementById('mute-button');
         const backgroundSong = document.getElementById('background-song');
 
-        playButton.addEventListener('click', () => {
+        // Function to start the music
+        function startMusic() {
             backgroundSong.play();
-            playButton.style.display = 'none'; // Hide the button after it's clicked
+            // Once music starts, set the icon to 'sound on'
+            muteButton.textContent = '🔊';
+        }
+
+        // Add an event listener that only runs ONCE on the first mouse move
+        document.addEventListener('mousemove', startMusic, { once: true });
+
+        // Keep the mute button functionality
+        muteButton.addEventListener('click', () => {
+            if (backgroundSong.paused) {
+                backgroundSong.play();
+                muteButton.textContent = '🔊';
+            } else if (backgroundSong.muted) {
+                backgroundSong.muted = false;
+                muteButton.textContent = '🔊';
+            } else {
+                backgroundSong.muted = true;
+                muteButton.textContent = '🔇';
+            }
         });
     </script>
 
