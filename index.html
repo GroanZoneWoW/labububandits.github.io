@@ -6,81 +6,51 @@
     <title>Labubu Bandits - Ambershire Guild - Turtle WoW</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="enter-overlay">
+        <button id="enter-button" class="cta-button">Enter Site</button>
+    </div>
+
     <audio id="background-song" src="song.mp3" loop></audio>
     
     <div id="mute-button">🔇</div>
 
     <div class="site-container">
         <header class="site-header">
-            <div class="header-content">
-                <img src="https://via.placeholder.com/150x150.png?text=Guild+Logo" alt="Labubu Bandits Guild Logo" class="guild-logo">
-                <div class="guild-title">
-                    <h1>Labubu Bandits</h1>
-                    <p class="server-name">Ambershire - Turtle WoW</p>
-                </div>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#recruitment">Recruitment</a></li>
-                </ul>
-            </nav>
-        </header>
-
+            </header>
         <main class="main-content">
-             <section id="home">
-                 </section>
-            <section id="about">
-                 </section>
-            <section id="recruitment">
-                 </section>
-        </main>
-
+             </main>
         <footer class="site-footer">
-            <p>&copy; 2025 Labubu Bandits. For the Horde!</p>
-        </footer>
+            </footer>
     </div>
 
-<script>
-        const muteButton = document.getElementById('mute-button');
+    <script>
+        const enterOverlay = document.getElementById('enter-overlay');
+        const enterButton = document.getElementById('enter-button');
         const backgroundSong = document.getElementById('background-song');
-        let hasMusicStarted = false; // Flag to check if music has started
+        const muteButton = document.getElementById('mute-button');
 
-        // This is the main function to start the music
-        function initiateAudio() {
-            if (hasMusicStarted) return; // Don't run this more than once
-
-            backgroundSong.play();
-            hasMusicStarted = true;
-            muteButton.textContent = '🔊'; // Set icon to 'sound on'
-        }
-
-        // Add event listeners for ANY user interaction
-        document.addEventListener('mousemove', initiateAudio);
-        document.addEventListener('touchstart', initiateAudio);
-        document.addEventListener('click', initiateAudio);
-        document.addEventListener('keydown', initiateAudio);
+        // When the user clicks "Enter"
+        enterButton.addEventListener('click', () => {
+            enterOverlay.style.display = 'none'; // Hide the overlay
+            backgroundSong.play(); // Play the music
+            muteButton.textContent = '🔊'; // Show the sound-on icon
+        });
 
         // Mute button functionality
         muteButton.addEventListener('click', () => {
-            // If music hasn't started yet, clicking the mute button should start it
-            if (!hasMusicStarted) {
-                initiateAudio();
-                return;
-            }
-            
-            // Toggle mute/unmute if music is already playing
-            if (backgroundSong.muted) {
+            // If the song is paused for any reason, play it
+            if (backgroundSong.paused) {
+                backgroundSong.play();
                 backgroundSong.muted = false;
                 muteButton.textContent = '🔊';
             } else {
-                backgroundSong.muted = true;
-                muteButton.textContent = '🔇';
+                // Otherwise, just toggle mute
+                backgroundSong.muted = !backgroundSong.muted;
+                muteButton.textContent = backgroundSong.muted ? '🔇' : '🔊';
             }
         });
     </script>
