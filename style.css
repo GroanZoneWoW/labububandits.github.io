@@ -4,8 +4,9 @@ html {
 }
 
 body {
-    background-color: #1a1a1a;
-    background-image: url('https://www.transparenttextures.com/patterns/crissxcross.png');
+    background-color: #111; /* Darker base color */
+    /* UPDATED: New futuristic background texture for the whole page */
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
     color: #f5e6c8;
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -17,8 +18,9 @@ body {
 .site-container {
     max-width: 1100px;
     margin: 0 auto;
-    background-color: #2c211a;
-    background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+    background-color: #1a1a1a; /* Darker container color */
+    /* UPDATED: New futuristic mesh texture for the content area */
+    background-image: url('https://www.transparenttextures.com/patterns/light-mesh.png');
     border-left: 2px solid #5a3d2b;
     border-right: 2px solid #5a3d2b;
     box-shadow: 0 0 20px rgba(0,0,0,0.7);
