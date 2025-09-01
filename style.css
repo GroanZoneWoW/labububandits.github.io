@@ -302,6 +302,7 @@ section h2 {
 =====================================================
 */
 @media (max-width: 768px) {
+    body { background-color: blue !important; }
     /* Set a larger base font size for the whole page on mobile */
     html {
         font-size: 18px;
