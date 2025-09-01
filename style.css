@@ -298,18 +298,19 @@ section h2 {
 
 
 /* =====================================================
---- EXTRA LARGE MOBILE FONT STYLES --- 
+--- FINAL & POLISHED MOBILE RESPONSIVENESS --- 
 =====================================================
 */
 @media (max-width: 768px) {
-    /* Set a VERY large base font size to force a change */
+    /* Set a larger base font size for the whole page on mobile */
     html {
-        font-size: 22px !important;
+        font-size: 18px;
     }
     
+    /* Ensure body text inherits this new, larger size and has more line spacing */
     body {
-        font-size: 1rem !important; /* This will now be 22px */
-        line-height: 1.6;
+        font-size: 1rem; /* This will now be 18px */
+        line-height: 1.7;
     }
     
     .site-container {
@@ -321,18 +322,20 @@ section h2 {
         padding: 10px 15px 20px 15px;
     }
 
+    /* Adjust heading sizes to be proportional to the new base size */
     h1 {
-        font-size: 1.8rem;
+        font-size: 2.0rem;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
+    /* Make header stack cleanly */
     .header-content {
         flex-direction: column;
         gap: 15px;
@@ -343,6 +346,7 @@ section h2 {
         height: 80px;
     }
 
+    /* Make navigation links larger and easier to tap */
     .main-nav ul {
         flex-direction: column;
         gap: 10px;
@@ -350,9 +354,10 @@ section h2 {
     
     .main-nav a {
         font-size: 1.1rem;
-        padding: 15px;
+        padding: 12px;
     }
 
+    /* Scale down audio controls to take up less space */
     #audio-controls {
         bottom: 10px;
         right: 10px;
