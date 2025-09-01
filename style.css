@@ -309,7 +309,7 @@ section h2 {
     
     /* Ensure body text inherits this new, larger size and has more line spacing */
     body {
-        background-color: blue !important;
+        background-color: blue;
         font-size: 1rem; /* This will now be 18px */
         line-height: 1.7;
     }
