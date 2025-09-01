@@ -16,7 +16,10 @@
 
     <audio id="background-song" src="song.mp3" loop></audio>
     
-    <div id="mute-button">🔇</div>
+    <div id="audio-controls">
+        <div id="mute-button">🔇</div>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
 
     <div class="site-container">
         <header class="site-header">
@@ -107,21 +110,47 @@
         const enterImage = document.getElementById('enter-image');
         const backgroundSong = document.getElementById('background-song');
         const muteButton = document.getElementById('mute-button');
+        const volumeSlider = document.getElementById('volume-slider');
 
+        // When the user clicks the entry image
         enterImage.addEventListener('click', () => {
             enterOverlay.style.display = 'none';
+            
+            // Set default volume to 50%
+            backgroundSong.volume = 0.5;
+            volumeSlider.value = 0.5;
+
             backgroundSong.play();
             muteButton.textContent = '🔊';
         });
 
-        muteButton.addEventListener('click', () => {
-            if (backgroundSong.paused) {
-                backgroundSong.play();
-                backgroundSong.muted = false;
-                muteButton.textContent = '🔊';
+        // When the volume slider is used
+        volumeSlider.addEventListener('input', () => {
+            backgroundSong.volume = volumeSlider.value;
+            // Unmute the song if the user is adjusting volume
+            backgroundSong.muted = false;
+            
+            // Update mute button icon based on volume
+            if (volumeSlider.value == 0) {
+                muteButton.textContent = '🔇';
             } else {
-                backgroundSong.muted = !backgroundSong.muted;
-                muteButton.textContent = backgroundSong.muted ? '🔇' : '🔊';
+                muteButton.textContent = '🔊';
+            }
+        });
+
+        // When the mute button is clicked
+        muteButton.addEventListener('click', () => {
+            backgroundSong.muted = !backgroundSong.muted;
+
+            if (backgroundSong.muted) {
+                muteButton.textContent = '🔇';
+            } else {
+                muteButton.textContent = '🔊';
+                // If the volume was 0, set it to 50% when unmuting
+                if (backgroundSong.volume === 0) {
+                    backgroundSong.volume = 0.5;
+                    volumeSlider.value = 0.5;
+                }
             }
         });
     </script>
