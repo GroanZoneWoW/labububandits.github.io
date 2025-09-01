@@ -298,13 +298,19 @@ section h2 {
 
 
 /* =====================================================
---- NEW & IMPROVED MOBILE RESPONSIVENESS --- 
+--- FINAL & MORE POWERFUL MOBILE RESPONSIVENESS --- 
 =====================================================
 */
 @media (max-width: 768px) {
-    /* Increase base font size for better readability */
+    /* Set a larger base font size for the whole page on mobile */
+    html {
+        font-size: 18px;
+    }
+    
+    /* Ensure body text inherits this new, larger size and has more line spacing */
     body {
-        font-size: 17px;
+        font-size: 1rem; /* This will now be 18px */
+        line-height: 1.7;
     }
     
     .site-container {
@@ -316,17 +322,17 @@ section h2 {
         padding: 10px 15px 20px 15px;
     }
 
-    /* Further reduce heading sizes */
+    /* Adjust heading sizes to be proportional to the new base size */
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.0rem; /* Was 2.2rem */
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem; /* Was 1.8rem */
     }
     
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem; /* Was 1.5rem */
     }
 
     /* Make header stack cleanly */
