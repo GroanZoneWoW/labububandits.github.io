@@ -67,7 +67,7 @@ ul, ol {
 #enter-image {
     max-width: 90%; /* Ensure image fits on smaller screens */
     max-height: 80vh; /* Limit height to viewport height */
-    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Adds depth */
+    /* REMOVED: box-shadow: 0 0 20px rgba(0,0,0,0.5); */
 }
 
 /* --- Header & Navigation --- */
