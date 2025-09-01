@@ -302,7 +302,6 @@ section h2 {
 =====================================================
 */
 @media (max-width: 768px) {
-    body { background-color: blue !important; }
     /* Set a larger base font size for the whole page on mobile */
     html {
         font-size: 18px;
@@ -310,6 +309,7 @@ section h2 {
     
     /* Ensure body text inherits this new, larger size and has more line spacing */
     body {
+        background-color: blue !important;
         font-size: 1rem; /* This will now be 18px */
         line-height: 1.7;
     }
