@@ -26,7 +26,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: 'MedievalSharp', cursive;
-    color: #e57373; /* Corrected from black for readability */
+    color: #e57373;
     font-weight: normal;
     text-shadow: 1px 1px 2px #000;
 }
@@ -298,19 +298,18 @@ section h2 {
 
 
 /* =====================================================
---- FINAL & MORE POWERFUL MOBILE RESPONSIVENESS --- 
+--- EXTRA LARGE MOBILE FONT STYLES --- 
 =====================================================
 */
 @media (max-width: 768px) {
-    /* Set a larger base font size for the whole page on mobile */
+    /* Set a VERY large base font size to force a change */
     html {
-        font-size: 18px;
+        font-size: 22px !important;
     }
     
-    /* Ensure body text inherits this new, larger size and has more line spacing */
     body {
-        font-size: 1rem; /* This will now be 18px */
-        line-height: 1.7;
+        font-size: 1rem !important; /* This will now be 22px */
+        line-height: 1.6;
     }
     
     .site-container {
@@ -322,20 +321,18 @@ section h2 {
         padding: 10px 15px 20px 15px;
     }
 
-    /* Adjust heading sizes to be proportional to the new base size */
     h1 {
-        font-size: 2.0rem; /* Was 2.2rem */
+        font-size: 1.8rem;
     }
 
     h2 {
-        font-size: 1.6rem; /* Was 1.8rem */
+        font-size: 1.5rem;
     }
     
     h3 {
-        font-size: 1.4rem; /* Was 1.5rem */
+        font-size: 1.3rem;
     }
 
-    /* Make header stack cleanly */
     .header-content {
         flex-direction: column;
         gap: 15px;
@@ -346,7 +343,6 @@ section h2 {
         height: 80px;
     }
 
-    /* Make navigation links larger and easier to tap */
     .main-nav ul {
         flex-direction: column;
         gap: 10px;
@@ -354,10 +350,9 @@ section h2 {
     
     .main-nav a {
         font-size: 1.1rem;
-        padding: 12px;
+        padding: 15px;
     }
 
-    /* Scale down audio controls to take up less space */
     #audio-controls {
         bottom: 10px;
         right: 10px;
